@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Cadastro</title>
+        <script src="js/validacao.js"></script>
+    </head>
+    <body>
+        <div id="divFeedback"></div>
+        <form action="#">
+            <p>
+                <label>Nome*:</label>
+                <input id="txtNome" type="text"/>
+            </p>
+            <p>
+                <label>CPF:</label>
+                <input onblur="validarCpf();" id="txtCpf" type="text"/>
+            </p>
+            <p>
+                <button onclick="validarFormulario();">Cadastrar</button>
+            </p>
+        </form>
+    </body>
+</html>
