@@ -3,18 +3,107 @@
         <title>
             Calculadora
         </title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
         <script src="js/calculadora.js"></script>
+
+        <style>
+            .botao {
+                width: 75px;
+                height: 75px;
+            }
+        </style>
     </head>
     <body>
-        <div>
-            <input id="txtNumero1" type="text"/>
-            <input id="txtNumero2" type="text"/>
-            <br/>
-            <input onclick="executarCalculo('+');" type="button" value="+">
-            <input onclick="executarCalculo('-');" type="button" value="-">
-            <input onclick="executarCalculo('/');" type="button" value="/">
-            <input onclick="executarCalculo('*');" type="button" value="*">
-            <div id="divResultado" style="background-color: antiquewhite;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="7" onclick="capturarNumero('7');">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="8" onclick="capturarNumero('8');">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="9" onclick="capturarNumero('9');">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="/" onclick="capturarOperador('/');"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="4" onclick="capturarNumero('4');"/>
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="5" onclick="capturarNumero('5');"/>
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="6" onclick="capturarNumero('6');"/>
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="*" onclick="capturarOperador('*');"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="1" onclick="capturarNumero('1');">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="2" onclick="capturarNumero('2');"/>
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="3" onclick="capturarNumero('3');"/>
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="+"  onclick="capturarOperador('+');" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="=" onclick="capturarIgual();">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="0" onclick="capturarNumero('0');">
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-primary botao" value="." >
+                </div>
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="-"  onclick="capturarOperador('-');"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-*-3 p-3">
+                    <input type="button" class="btn btn-lg btn-secondary botao" value="C" onclick="limparCampos();">
+                </div>
+                <div class="col-*-3 p-3">
+                </div>
+                <div class="col-*-3 p-3">
+                </div>
+                <div class="col-*-3 p-3">
+                </div>
+            </div>
         </div>
+
+        <input id="txtNumero1" type="text"/>
+        <input id="txtNumero2" type="text"/>
+        <br/>
+        <input onclick="executarCalculo('+');" type="button" value="+">
+        <input onclick="executarCalculo('-');" type="button" value="-">
+        <input onclick="executarCalculo('/');" type="button" value="/">
+        <input onclick="executarCalculo('*');" type="button" value="*">
+        <div id="divResultado" style="background-color: antiquewhite;"></div>
+        
     </body>
 </html>
