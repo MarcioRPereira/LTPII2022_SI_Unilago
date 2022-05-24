@@ -1,5 +1,7 @@
 controle = 'NUMERO1';
 operador = '';
+numero1 = '';
+numero2 = '';
 
 function executarCalculo(operador){
     recuperarNumeros();
@@ -22,8 +24,8 @@ function calcular(operador){
 }
 
 function recuperarNumeros(){
-    numero1 = parseFloat(document.getElementById("txtNumero1").value);
-    numero2 = parseFloat(document.getElementById("txtNumero2").value);
+    numero1 = parseFloat(numero1);
+    numero2 = parseFloat(numero2);
 }
 
 function validarCampos(){
@@ -40,8 +42,8 @@ function imprimirResultado(){
 }
 
 function limparCampos(){
-    document.getElementById("txtNumero1").value = "";
-    document.getElementById("txtNumero2").value = "";
+    numero1 = '';
+    numero2 = '';
     controle = 'NUMERO1';
     operador = '';
 }
@@ -63,13 +65,19 @@ function multiplicar(){
 }
 
 function capturarNumero(valor){
-    let idInput = 'txtNumero1';
-    if (controle == 'NUMERO2'){
-        idInput = 'txtNumero2';
-    }
+    /*
+    let idInput = retornaInput();
+
     let txtNumero = document.getElementById(idInput);
     let valorAtual = txtNumero.value;
+
     txtNumero.value = valorAtual + valor;
+    */
+    if(controle == "NUMERO1"){
+        numero1 = numero1 + valor;
+    }else{
+        numero2 = numero2 + valor;
+    } 
 }
 
 function capturarOperador(valor){
@@ -79,4 +87,27 @@ function capturarOperador(valor){
 
 function capturarIgual(){
     executarCalculo(operador);
+}
+
+function capturaDecimal(){
+    /*let idInput = retornaInput();
+    let txtNumero = document.getElementById(idInput);
+    let valorAtual = txtNumero.value;
+    if(valorAtual.indexOf(".") == -1){
+        txtNumero.value = valorAtual + ".";
+    }
+    */
+    if(controle == "NUMERO1"){
+        if(numero1.indexOf(".") == -1) numero1 = numero1 + ".";
+    }else{
+        if(numero2.indexOf(".") == -1) numero2 = numero2 + ".";
+    }    
+}
+
+function retornaInput(){
+    let idInput = 'txtNumero1';
+    if (controle == 'NUMERO2'){
+        idInput = 'txtNumero2';
+    }
+    return idInput;
 }
